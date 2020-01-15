@@ -1,6 +1,8 @@
 package model;
 
 import java.io.FileNotFoundException;
+import java.lang.reflect.InvocationTargetException;
+import java.sql.SQLException;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -17,6 +19,7 @@ public class SceneFactory {
 	Sales sales;
 	Store store;
 	Customers customers;
+	TopStore topStore;
 	
 	
 	
@@ -31,80 +34,39 @@ public class SceneFactory {
 		return welcome.getScene();
 	}
 	
-	public Scene getProductsScene() {
+	public Scene getProductsScene() throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException, SQLException {
 		products = new Products(window);
 		return products.getScene();
 	}
 	
-	public Scene getTaxScene() {
+	public Scene getTaxScene() throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException, SQLException {
 		tax = new Tax(window);
 		return tax.getScene();
 	}
 	
-	public Scene getStoreScene() {
+	public Scene getStoreScene() throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException, SQLException {
 		store = new Store(window);
 		return store.getScene();
 	}
 	
-	public Scene getSalesScene() {
+	public Scene getSalesScene() throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException, SQLException {
 		sales = new Sales(window);
 		return sales.getScene();
 	}
 	
-	public Scene getCustomersScene() throws FileNotFoundException {
+	public Scene getCustomersScene() throws FileNotFoundException, InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException, SQLException {
 		customers = new Customers(window);
 		return customers.getScene();
 	}
 	
-	public Scene getManufactorsScene() {
+	public Scene getManufactorsScene() throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException, SQLException {
 		manufactor = new Manufactor(window);
 		return manufactor.getScene();
 	}
 	
-	// -------------------------------- Some syntax of JavaFX
-	
-	/* Label label = new Label("Railroad System");
-	
-	//String path = "file:railroadSystem.jpg";
-	String path = "https://i.gyazo.com/edd809ec2e594e8e24b3fd824b1fe250.png";
-	Image railroad = new Image(path);
-	
-	ImageView imageView = new ImageView();
-	imageView.setImage(railroad);
-	imageView.setFitHeight(600);
-	imageView.setFitWidth(250);
-    imageView.setPreserveRatio(true); 
-	
-	// Layout
-	StackPane layout = new StackPane();
-	
-	StackPane.setMargin(imageView, new Insets(0,20,0,0));
-	StackPane.setMargin(label, new Insets(20,0,0,20));
-	StackPane.setMargin(backButton, new Insets(0,0,20,20));
-	
-	StackPane.setAlignment(label, Pos.TOP_LEFT);
-	StackPane.setAlignment(backButton, Pos.BOTTOM_LEFT);
-	StackPane.setAlignment(imageView, Pos.TOP_RIGHT);
-			
-	layout.getChildren().addAll(label,backButton,imageView);
-	// Scene
-	Scene scene = new Scene(layout, 600, 600);
-	return scene;
-	
-	
-	
-	Label label = new Label("Railroad System");
-		// Layout
-		VBox layout = new VBox();
-		layout.getChildren().addAll(label, backButton);
-				
-		// Scene
-		Scene scene = new Scene(layout, 600, 600);
-	return scene;
-	
-	
-	 *
-	 *
-	 */
+	public Scene getTopStoreScene() throws InstantiationException, IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException, ClassNotFoundException, SQLException {
+		topStore = new TopStore(window);
+		return topStore.getScene();
+	}
 	
 }
